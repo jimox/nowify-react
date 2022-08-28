@@ -1,0 +1,21 @@
+.controls {
+  height: 10vh;
+  margin: auto;
+  width: 144px;
+}
+
+.controls span {
+  vertical-align: text-top;
+}
+
+.material-icons-round {
+  cursor: pointer;
+}
+
+.material-icons-round.md-36 {
+  font-size: 36px;
+}
+
+.material-icons-round.md-48 {
+  font-size: 48px;
+}

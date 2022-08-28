@@ -1,0 +1,28 @@
+{
+  "name": "nowify-react",
+  "version": "1.0.0",
+  "description": "React version of Nowify Spotify now playing app.",
+  "main": "server.js",
+  "author": "Jim Oxenhandler <jimox22@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.18.3",
+    "chalk": "4.1.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "node-cache": "^5.1.2",
+    "node-vibrant": "^3.2.1-alpha.1",
+    "request": "^2.88.2",
+    "spotify-web-api-node": "^5.0.2",
+    "tinycolor2": "^1.4.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

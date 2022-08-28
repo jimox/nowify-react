@@ -1,0 +1,29 @@
+.now-playing {
+  display: flex;
+  margin-left: 20vh;
+  align-items: center;
+  height: 80vh;
+}
+
+.now-playing_idle-emoji {
+  margin-left: 20px;
+}
+
+.now-playing_details {
+  margin-left: 20px;
+  max-width: 420px;
+}
+
+.now-playing_cover {
+  box-shadow: 1px 1px 16px -2px rgba(0, 0, 0, 0.3);
+  display: contents;
+}
+
+.now-playing_cover img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.now-playing_device {
+  margin-top: 10px;
+}
