@@ -241,6 +241,12 @@ app.get("/api/previous", (req, res) => {
   );
 });
 
+app.get("/", function (req, res) {
+  res.sendFile("build/index.html");
+});
+
+app.use(express.static("build"));
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
