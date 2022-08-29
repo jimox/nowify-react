@@ -3,6 +3,10 @@
   text-align: left;
 }
 
+.app > div {
+  box-sizing: border-box;
+}
+
 h1 {
   font-size: 2em;
   font-weight: var(--font-weight-heading);
