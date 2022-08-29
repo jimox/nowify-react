@@ -1,11 +1,10 @@
 .clock {
   height: 10vh;
   display: flex;
-  margin-left: 20vh;
+  margin: 0 10vh;
   padding-top: 20px;
 }
 
 .clock_date {
   margin-left: auto;
-  margin-right: 20vh;
 }
