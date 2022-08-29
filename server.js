@@ -245,7 +245,7 @@ app.get("/", function (req, res) {
   res.sendFile("client/build/index.html", { root: __dirname });
 });
 
-app.use(express.static("client/build"));
+app.use(express.static("client/build", { root: __dirname }));
 
 app.listen(cfg.port, () => {
   console.log(`Example app listening on port ${cfg.port}`);
