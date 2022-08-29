@@ -1,6 +1,6 @@
 .now-playing {
   display: flex;
-  margin-left: 20vh;
+  margin: 0 20vh;
   align-items: center;
   height: 80vh;
 }
