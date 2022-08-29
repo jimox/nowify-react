@@ -6,31 +6,31 @@ const cache = new NodeCache({ stdTTL: 0, checkperiod: 30 });
 const Vibrant = require("node-vibrant");
 const tinycolor = require("tinycolor2");
 const chalk = require("chalk");
+const cfg = require("./config.json");
 
 require("dotenv").config();
 
-cfg = {
-  spotifyClientID: process.env.SPOTIFY_CLIENT_ID,
-  spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-  spotifyScope:
-    "user-modify-playback-state user-read-playback-state user-read-currently-playing",
-  loginURL: "http://localhost:3100/login",
-  redirectURL: "http://localhost:3100/callback",
-  app: "http://localhost:3000",
-};
+if (!cfg.spotifyClientID) {
+  cfg.spotifyClientID = process.env.SPOTIFY_CLIENT_ID;
+}
+
+if (!cfg.spotifyClientSecret) {
+  cfg.spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+}
 
 const app = express();
-const port = 3100;
 
-// CORS for local dev
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+if (!cfg.prod) {
+  // CORS for local dev
+  app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", cfg.app); // update to match the domain you will make the request from
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+}
 
 app.use((req, res, next) => {
   console.log(`${req.method}: ${req.originalUrl}`);
@@ -242,13 +242,13 @@ app.get("/api/previous", (req, res) => {
 });
 
 app.get("/", function (req, res) {
-  res.sendFile("build/index.html");
+  res.sendFile("client/build/index.html", { root: __dirname });
 });
 
-app.use(express.static("build"));
+app.use(express.static("client/build"));
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(cfg.port, () => {
+  console.log(`Example app listening on port ${cfg.port}`);
 });
 
 function returnError(res, err) {

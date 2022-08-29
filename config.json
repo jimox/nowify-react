@@ -1,0 +1,10 @@
+{
+    "prod": false,
+    "port": 3100,
+    "spotifyClientID": null,
+    "spotifyClientSecret": null,
+    "spotifyScope": "user-modify-playback-state user-read-playback-state user-read-currently-playing",
+    "loginURL": "http://localhost:3100/login",
+    "redirectURL": "http://localhost:3100/callback",
+    "app": "http://localhost:3000"
+}
